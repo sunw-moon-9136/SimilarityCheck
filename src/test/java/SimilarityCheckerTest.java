@@ -5,13 +5,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class SimilarityCheckerTest {
 
     @Test
-    void test() {
-        SimilarityChecker similarityChecker = new SimilarityChecker();
-        String testStr1 = "ABCDEFG";
-        String testStr2 = "HIJKLMN";
+    void checkWhenOnlySameLength() {
         int expected = 60;
 
-        int actual = similarityChecker.check(testStr1, testStr2);
+        int actual = SimilarityChecker.check("ABCDEFG", "HIJKLMN");
 
         assertEquals(expected, actual);
     }
