@@ -10,21 +10,28 @@ public class SimilarityChecker {
     }
 
     private static int getLengthScore(String source, String target) {
-        String smaller = target;
-
-        if (source.length() == target.length())
+        if (isSameLength(source, target))
             return MAX_LENGTH_SCORE;
 
+        String smaller = target;
         int diffLen = source.length() - target.length();
         if (diffLen < 0) {
             smaller = source;
             diffLen *= -1;
         }
 
-        if (diffLen >= smaller.length())
+        if (isGreaterThanTwiceBetween(diffLen, smaller))
             return 0;
 
         return (int) getSubScoreByFormula(diffLen, smaller.length());
+    }
+
+    private static boolean isSameLength(String source, String target) {
+        return source.length() == target.length();
+    }
+
+    private static boolean isGreaterThanTwiceBetween(int diffLen, String smaller) {
+        return diffLen >= smaller.length();
     }
 
     private static void requireArgumentNotEmpty(String source, String target) {
