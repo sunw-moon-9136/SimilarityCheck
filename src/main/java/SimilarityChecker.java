@@ -9,10 +9,10 @@ public class SimilarityChecker {
     private static int getLengthScore(String source, String target) {
         String smaller = target;
 
-        if (source.length() == smaller.length())
+        if (source.length() == target.length())
             return MAX_LENGTH_SCORE;
 
-        int diffLen = source.length() - smaller.length();
+        int diffLen = source.length() - target.length();
         if (diffLen < 0) {
             smaller = source;
             diffLen *= -1;
@@ -21,6 +21,10 @@ public class SimilarityChecker {
         if (diffLen >= smaller.length())
             return 0;
 
-        return (int) ((1 - ((double) diffLen / smaller.length())) * 60);
+        return (int) getSubScoreByFormula(diffLen, smaller.length());
+    }
+
+    private static double getSubScoreByFormula(double gap, int B) {
+        return (1 - (gap / B)) * 60;
     }
 }
