@@ -7,6 +7,9 @@ public class SimilarityChecker {
     }
 
     private static int getLengthScore(String source, String target) {
+        if(source == null || source.isEmpty() || target == null || target.isEmpty())
+            throw new IllegalArgumentException("EMPTY ARGUMENT");
+
         String smaller = target;
 
         if (source.length() == target.length())

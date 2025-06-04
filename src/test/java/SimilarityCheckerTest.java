@@ -52,5 +52,10 @@ class SimilarityCheckerTest {
             assertEquals(expected, actual);
         }
 
+        @Test
+        void checkWhenWithEmptyString() {
+            assertThrows(IllegalArgumentException.class,
+                    () -> SimilarityChecker.getScore("", ""));
+        }
     }
 }
