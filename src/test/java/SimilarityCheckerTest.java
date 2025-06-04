@@ -12,4 +12,13 @@ class SimilarityCheckerTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    void checkWhenTwiceLengthAndNotMatched() {
+        int expected = 0;
+
+        int actual = SimilarityChecker.check("ABCDEFG", "HIJKLMNOPQRSTU");
+
+        assertEquals(expected, actual);
+    }
 }
