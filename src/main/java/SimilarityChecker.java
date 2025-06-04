@@ -12,15 +12,15 @@ public class SimilarityChecker {
         if (source.length() == smaller.length())
             return MAX_LENGTH_SCORE;
 
-        int diffLength = source.length() - smaller.length();
-        if (diffLength < 0) {
+        int diffLen = source.length() - smaller.length();
+        if (diffLen < 0) {
             smaller = source;
-            diffLength *= -1;
+            diffLen *= -1;
         }
 
-        if (diffLength >= smaller.length())
+        if (diffLen >= smaller.length())
             return 0;
 
-        return -1;
+        return (int) ((1 - ((double) diffLen / smaller.length())) * 60);
     }
 }
