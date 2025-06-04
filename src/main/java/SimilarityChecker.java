@@ -4,7 +4,8 @@ public class SimilarityChecker {
         if (source.length() == target.length())
             return 60;
 
-        if (target.length() - source.length() >= source.length())
+        int diffLength = target.length() - source.length();
+        if (diffLength >= source.length())
             return 0;
 
         return 0;
