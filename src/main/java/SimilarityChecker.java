@@ -8,6 +8,10 @@ public class SimilarityChecker {
         if (diffLength >= source.length())
             return 0;
 
-        return 0;
+        diffLength = source.length() - target.length();
+        if (diffLength >= target.length())
+            return 0;
+
+        return -1;
     }
 }
