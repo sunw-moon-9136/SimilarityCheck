@@ -2,7 +2,7 @@ public class SimilarityChecker {
 
     public static final int MAX_LENGTH_SCORE = 60;
 
-    public static int check(String source, String target) {
+    public static int getScore(String source, String target) {
         return getLengthScore(source, target);
     }
 

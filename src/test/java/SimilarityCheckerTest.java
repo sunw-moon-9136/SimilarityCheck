@@ -11,7 +11,7 @@ class SimilarityCheckerTest {
         void checkWhenOnlySameLength() {
             int expected = 60;
 
-            int actual = SimilarityChecker.check("ABCDEFG", "HIJKLMN");
+            int actual = SimilarityChecker.getScore("ABCDEFG", "HIJKLMN");
 
             assertEquals(expected, actual);
         }
@@ -20,7 +20,7 @@ class SimilarityCheckerTest {
         void checkWhenTwiceWithSmallerOneFirst() {
             int expected = 0;
 
-            int actual = SimilarityChecker.check("ABCDEFG", "HIJKLMNOPQRSTU");
+            int actual = SimilarityChecker.getScore("ABCDEFG", "HIJKLMNOPQRSTU");
 
             assertEquals(expected, actual);
         }
@@ -29,7 +29,7 @@ class SimilarityCheckerTest {
         void checkWhenTwiceWithBiggerOneFirst() {
             int expected = 0;
 
-            int actual = SimilarityChecker.check("HIJKLMNOPQRSTU", "ABCDEFG");
+            int actual = SimilarityChecker.getScore("HIJKLMNOPQRSTU", "ABCDEFG");
 
             assertEquals(expected, actual);
         }
@@ -38,7 +38,7 @@ class SimilarityCheckerTest {
         void checkWhenLessThanTwiceWithSmallerOneFirst() {
             int expected = 30;
 
-            int actual = SimilarityChecker.check("AB", "CDE");
+            int actual = SimilarityChecker.getScore("AB", "CDE");
 
             assertEquals(expected, actual);
         }
@@ -47,7 +47,7 @@ class SimilarityCheckerTest {
         void checkWhenLessThanTwiceWithBiggerOneFirst() {
             int expected = 30;
 
-            int actual = SimilarityChecker.check("ABC", "EF");
+            int actual = SimilarityChecker.getScore("ABC", "EF");
 
             assertEquals(expected, actual);
         }
