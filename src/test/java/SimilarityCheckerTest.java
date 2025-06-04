@@ -35,12 +35,22 @@ class SimilarityCheckerTest {
         }
 
         @Test
-        void checkWhenLessThanTwiceWithBiggerOneFirst() {
+        void checkWhenLessThanTwiceWithSmallerOneFirst() {
             int expected = 30;
 
             int actual = SimilarityChecker.check("AB", "CDE");
 
             assertEquals(expected, actual);
         }
+
+        @Test
+        void checkWhenLessThanTwiceWithBiggerOneFirst() {
+            int expected = 30;
+
+            int actual = SimilarityChecker.check("ABC", "EF");
+
+            assertEquals(expected, actual);
+        }
+
     }
 }
